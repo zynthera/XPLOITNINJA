@@ -67,7 +67,7 @@ XploitNinja/ ├── backend/ │   ├── rust_core/          # Rust scann
 git clone https://github.com/zynthera/XPLOITNINJA.git
 cd XPLOITNINJA
 
-
+python setup.py
 ---
 
 2️⃣ Build Rust Backend
