@@ -68,23 +68,24 @@ git clone https://github.com/zynthera/XPLOITNINJA.git
 cd XPLOITNINJA
 
 python setup.py
+``
 ---
 
 2️⃣ Build Rust Backend
-
+``
 cd backend/rust_core
 cargo build --release
 
 The binary will be here:
 backend/rust_core/target/release/xploitninja_backend
-
+``
 
 ---
 
 3️⃣ Install Python Dependencies
-
+``
 pip install -r requirements.txt
-
+``
 
 ---
 
@@ -96,11 +97,11 @@ Register native messaging host according to your OS/browser (see browser docs)
 
 Example for Firefox on Linux:
 
-
+``
 mkdir -p ~/.mozilla/native-messaging-hosts
 cp bridge/manifest_host.json ~/.mozilla/native-messaging-hosts/xploitninja.native.json
 
-
+``
 ---
 
 5️⃣ Load Browser Extension
