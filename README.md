@@ -5,7 +5,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/issues)
 [![GitHub forks](https://img.shields.io/github/forks/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/network)
 [![GitHub stars](https://img.shields.io/github/stars/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/stargazers)
-[![GitHub license](https://img.shields.io/github/license/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/blob/main/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/blob/master/LICENSE)
 
 ---
 
