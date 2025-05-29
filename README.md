@@ -1,68 +1,67 @@
+
+
 # 🥷 XploitNinja
 
-Ultimate CTF Browser Extension + Native Backend Hacking Toolkit 🚀  
-**Author:** xploitninja@hotmail.com  
-**GitHub Repo:** [https://github.com/zynthera/XPLOITNINJA](https://github.com/zynthera/XPLOITNINJA)
+[![GitHub issues](https://img.shields.io/github/issues/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/issues)
+[![GitHub forks](https://img.shields.io/github/forks/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/network)
+[![GitHub stars](https://img.shields.io/github/stars/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/stargazers)
+[![GitHub license](https://img.shields.io/github/license/zynthera/XPLOITNINJA?style=for-the-badge)](https://github.com/zynthera/XPLOITNINJA/blob/main/LICENSE)
 
 ---
 
-## 🎯 Overview
+## 🎯 What is XploitNinja?
 
-**XploitNinja** is a multi-platform, multi-language toolkit designed specifically for educational purposes, Capture The Flag (CTF) challenges, and authorized security research.
+XploitNinja is a **powerful, multi-platform hacking toolkit** designed for **educational purposes, Capture The Flag (CTF) challenges, and authorized penetration testing**.  
 
-This toolkit combines:  
-- A **cross-browser extension** (Chrome, Firefox, Edge) to provide live vulnerability insights on any webpage.  
-- A **Rust backend** that performs fast and efficient port scanning and XSS fuzzing.  
-- A **Python native messaging bridge** to enable seamless communication between the browser extension and the native backend.  
-- An optional **Flask API server** for exposing backend functionality over HTTP, enabling easy deployment on cloud platforms such as Render.com.  
-- Support for **HTTP, HTTPS, and `.onion` (Tor) URLs**, with integrated Tor proxy support for privacy and dark web pentesting.
+It seamlessly combines a **cross-browser extension** and a **native backend** built in Rust, Python, and C/C++ for high-performance network scanning, XSS fuzzing, and vulnerability detection.
 
-All data is handled locally with **no databases**, ensuring lightweight operation and privacy.
+**Key Highlights:**
 
----
-
-## ⚙️ Features & Capabilities
-
-| Feature                       | Description                                                                                     |
-|------------------------------|-------------------------------------------------------------------------------------------------|
-| 🔍 **Port Scanner**            | Scans common TCP ports (22, 80, 443, 8080, and more) to find open services on the current host. |
-| 🛡️ **XSS Fuzzer**              | Tests input injection points on the current webpage URL for reflected XSS vulnerabilities.      |
-| 🔗 **Native Messaging Bridge** | Connects the browser extension and Rust backend securely and efficiently.                        |
-| 🌐 **Flask REST API Server**   | Provides RESTful endpoints for port scanning and XSS fuzzing. Easily deployed to cloud platforms.|
-| 🧅 **Tor `.onion` Support**     | Accesses `.onion` sites through Tor SOCKS5 proxy at `127.0.0.1:9050`.                            |
-| 🧩 **Cross-browser Compatible**| Supports major browsers with Manifest V3.                                                      |
-| 📡 **Real-time Results**       | Results from backend scans are pushed immediately to the extension UI.                          |
-| 🧹 **No Persistent Storage**   | Data is ephemeral — stored locally only and cleared on reload to protect user privacy.          |
+- 🔥 Real-time vulnerability insights in the browser  
+- 🚀 Fast Rust-powered port scanning and fuzzing  
+- 🧅 Full support for `.onion` Tor hidden services  
+- 🌐 Works with HTTP, HTTPS, and onion protocols  
+- ⚡ No external databases, fully local and ephemeral data  
+- 🧩 Cross-browser compatibility (Chrome, Firefox, Edge) with Manifest V3  
+- ☁️ Optional Flask API server for cloud deployment (Render.com compatible)  
+- 🛡️ Native messaging bridge for seamless browser-backend communication  
 
 ---
 
-## 🏗️ Project Structure & Architecture
+## ⚙️ Features
 
-XploitNinja/ ├── backend/ │   ├── rust_core/          # Rust scanner and fuzzing tools │   │   ├── src/ │   │   └── Cargo.toml │   └── python_core/        # Python scripts for Tor requests and helpers ├── bridge/                 # Python native messaging bridge between extension & Rust binary │   ├── bridge_handler.py │   └── manifest_host.json ├── extension/              # Browser extension source code │   ├── manifest.json │   ├── background.js │   ├── content_script.js │   └── popup.html ├── server/                 # Flask server API for cloud deployment │   ├── app.py │   ├── requirements.txt │   └── utils.py ├── scripts/                # Helper scripts (e.g., install.sh, build.sh) ├── static/                 # Static assets (optional) ├── .render.yaml            # Render.com deployment config └── README.md               # This documentation
-
-### How It Works
-
-- The **browser extension** injects content scripts and UI for scanning and fuzzing.
-- Upon user action, it communicates with the **native messaging bridge** (Python) running locally.
-- The bridge calls the **Rust backend executable**, passing scan or fuzz commands.
-- The Rust backend performs network operations and returns structured JSON results.
-- Results are passed back to the extension and displayed in the UI.
-- For `.onion` URLs or cloud usage, the Python bridge or Flask server routes requests via Tor.
+| Feature                         | Description                                                                                   |
+|--------------------------------|-----------------------------------------------------------------------------------------------|
+| 🔍 **Port Scanner**              | Scan the most common TCP ports (22, 80, 443, 8080, etc.) on the target host in seconds.      |
+| 🛡️ **XSS Fuzzer**                | Test URL parameters for reflected XSS vulnerabilities with automated payload injection.       |
+| 🧅 **Tor & Onion Services**       | Route requests via Tor SOCKS5 proxy to access `.onion` sites safely and anonymously.          |
+| 🔗 **Native Messaging Bridge**    | Python bridge connects browser extension to backend binaries for fast and secure IPC.         |
+| 🌐 **Flask REST API**             | Expose backend scanning and fuzzing as RESTful endpoints for easy cloud deployment.           |
+| 🧹 **No Database Required**       | All scan results are transient, stored in memory or browser cache only for privacy.            |
+| 🧩 **Multi-Browser Support**      | Designed for Chrome, Firefox, and Edge with Manifest V3 and WebExtension APIs.                 |
+| 📡 **Real-Time Results**          | Push scan and fuzz results instantly from backend to extension UI for interactive experience.|
+| 🔧 **Modular Architecture**       | Easily extend with new scanning modules or integrate with other security tools.               |
 
 ---
 
-## 🚀 Setup & Installation Guide
+## 🏗️ Project Architecture & Directory Structure
+
+XploitNinja/ ├── backend/ │   ├── rust_core/          # Rust scanner & fuzzing core │   ├── python_core/        # Python helpers & Tor support ├── bridge/                 # Python native messaging bridge ├── extension/              # Browser extension source (Manifest V3) ├── server/                 # Flask API server (optional) ├── scripts/                # Setup, build, and deploy scripts ├── static/                 # Static files for extension UI or server ├── .render.yaml            # Render.com deployment config ├── README.md               # Project documentation ├── LICENSE                 # MIT License ├── CONTRIBUTING.md         # Contribution guidelines ├── SECURITY.md             # Security policy └── CODE_OF_CONDUCT.md      # Code of conduct
+
+---
+
+## 🚀 Getting Started: Installation & Setup
 
 ### Prerequisites
 
-- Rust and Cargo installed ([https://rustup.rs](https://rustup.rs))  
-- Python 3.8+ installed  
-- Tor daemon installed and running for `.onion` support  
-- Browsers supporting Manifest V3 extensions (Chrome 88+, Firefox 109+)
+- **Rust**: Install via [rustup](https://rustup.rs)  
+- **Python 3.8+** with dependencies (see `requirements.txt`)  
+- **Tor daemon** running locally (`127.0.0.1:9050`) for `.onion` support  
+- Modern browsers supporting Manifest V3 (Chrome 88+, Firefox 109+, Edge latest)
 
 ---
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/zynthera/XPLOITNINJA.git
@@ -76,69 +75,61 @@ cd XPLOITNINJA
 cd backend/rust_core
 cargo build --release
 
-This produces the backend binary at target/release/xploitninja_backend (or similar).
+The binary will be here:
+backend/rust_core/target/release/xploitninja_backend
 
 
 ---
 
-3️⃣ Setup Python Environment & Dependencies
+3️⃣ Install Python Dependencies
 
-cd ../../server
 pip install -r requirements.txt
-pip install requests pysocks  # For Tor support
 
 
 ---
 
 4️⃣ Configure Native Messaging
 
-Modify bridge/manifest_host.json:
-Set the "path" field to the absolute path of your bridge_handler.py script.
+Edit bridge/manifest_host.json to set the absolute path to bridge_handler.py
 
-Register the native messaging host:
+Register native messaging host according to your OS/browser (see browser docs)
 
+Example for Firefox on Linux:
 
-Linux Firefox example:
 
 mkdir -p ~/.mozilla/native-messaging-hosts
 cp bridge/manifest_host.json ~/.mozilla/native-messaging-hosts/xploitninja.native.json
-
-Windows and macOS have different native messaging paths — consult browser docs.
 
 
 ---
 
 5️⃣ Load Browser Extension
 
-Open browser extensions page:
+Open browser extension page (chrome://extensions/ or about:debugging#/runtime/this-firefox)
 
-Chrome: chrome://extensions/
+Enable developer mode
 
-Firefox: about:debugging#/runtime/this-firefox
-
-
-Enable developer mode.
-
-Load unpacked extension folder extension/.
+Load unpacked extension from extension/ folder
 
 
 
 ---
 
-6️⃣ Running Flask API Server (Optional)
+6️⃣ Start Flask API Server (Optional)
 
+cd server
 python app.py
 
-The server listens at http://localhost:8080/, exposing REST endpoints for scanning.
+API available at http://localhost:8080
 
 
 ---
 
-7️⃣ Start Tor Service (For .onion URLs)
-
-Make sure Tor is installed and running on your system:
+7️⃣ Start Tor Service
 
 sudo service tor start
+
+Ensure Tor listens on 127.0.0.1:9050
 
 
 ---
@@ -147,95 +138,69 @@ sudo service tor start
 
 Browser Extension
 
-Click the XploitNinja icon in your browser toolbar.
+Click the extension icon
 
-Select Scan Ports to perform a quick scan on common ports of the current site’s host.
+Use Scan Ports or Scan XSS tabs
 
-Select Scan XSS to fuzz input parameters on the current URL for reflected XSS.
+Enter target domain or URL
 
-View alerts/popups showing live results.
+View real-time scan/fuzzing results
 
 
-Flask API Endpoints
+Flask REST API
 
 Endpoint	Method	Payload	Description
 
-/ports	POST	{ "host": "example.com" }	Scan common ports on the host.
-/xss	POST	{ "url": "http://target/" }	Fuzz URL for XSS vulnerabilities.
+/ports	POST	{ "host": "example.com" }	Scan common TCP ports
+/xss	POST	{ "url": "http://target" }	Run XSS parameter fuzzing
 
 
-
----
-
-⚠️ Legal & Ethical Notice
-
-XploitNinja is strictly for educational use, CTF challenges, and authorized penetration testing only.
-Unauthorized scanning or hacking is illegal and unethical.
-Always obtain proper permission before testing any network or website.
+Supports .onion URLs via Tor.
 
 
 ---
 
-💡 Developer Notes
+⚠️ Legal Notice
 
-The Rust backend uses async networking for performance.
-
-Native messaging bridge uses JSON for IPC between extension and backend.
-
-Python scripts support Tor and act as glue layers.
-
-Extension UI is minimal for maximum compatibility but extensible.
-
-Future plans include additional scanners, vulnerability checks, and richer UI.
-
-
-
----
-
-🌐 Deployment on Render.com
-
-Included .render.yaml automates deployment of the Flask API server:
-
-Installs all Python dependencies
-
-Runs app.py as the web service
-
-Enables public HTTPS access with free tier support
-
+XploitNinja is intended only for educational use and authorized testing.
+Unauthorized access or scanning is illegal and unethical.
+Always obtain explicit permission before testing any system.
 
 
 ---
 
 🤝 Contributing
 
-Contributions, bug reports, and feature requests are welcome!
-
-Fork the repo
-
-Create feature branches
-
-Submit pull requests with detailed descriptions
-
-
-Please respect code style and add tests where applicable.
+Please read CONTRIBUTING.md for guidelines on how to contribute.
+All contributors agree to our Code of Conduct.
 
 
 ---
 
-📧 Contact & Support
+🛡️ Security
+
+Report security issues privately to:
+xploitninja@hotmail.com
+See SECURITY.md for details.
+
+
+---
+
+📧 Contact
 
 Email: xploitninja@hotmail.com
+
 GitHub: https://github.com/zynthera/XPLOITNINJA
+
 
 
 ---
 
 📄 License
 
-This project is licensed under the MIT License.
+MIT License — see LICENSE
 
 
 ---
 
-🎉 Enjoy hacking the right way with XploitNinja! 🥷✨
-
+🎉 Happy ethical hacking! 🥷✨
